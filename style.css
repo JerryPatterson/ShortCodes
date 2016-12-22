@@ -4,11 +4,15 @@ Override and add styles at the theme level.
 */
 
 /*Accordian*/
-
+._accordian {
+	margin: 20px 0;
+}
 ._accordian-title { 
 	font-size: 20px;
 	color: inherit;
 	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 1px;
 }
 ._accordian-title:hover {
 	cursor: pointer;
