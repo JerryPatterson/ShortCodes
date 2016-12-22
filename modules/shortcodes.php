@@ -1,5 +1,5 @@
-<!-- add_shortcode first param must match return text in shortcode.js file  -->
 <?php
+// add_shortcode first param must match return text in shortcode.js file  
 //----------Section--------------//
 function pwd_section_shortcode($atts,$content,$tags) {
 $value = shortcode_atts(array(
@@ -107,23 +107,17 @@ function pwd_shortcode_empty_paragraph_fix( $content ) {
 		']<br />' => ']'
 		);
 	return strtr( $content, $array );
-
 }
-
 //Shortcode Buttons
-function pwd_enqueue_plugin_scripts($plugin_array)
-{
+function pwd_enqueue_plugin_scripts($plugin_array){
     //enqueue TinyMCE plugin script with its ID.
     $plugin_array["shortcode_plugin"] =  plugin_dir_url(dirname(__FILE__)) . "js/shortcode.js";
     return $plugin_array;
 }
-
 add_filter("mce_external_plugins", "pwd_enqueue_plugin_scripts");
-function pwd_register_buttons_editor($buttons)
-{
+function pwd_register_buttons_editor($buttons){
     //add each button here and on js page
     array_push($buttons, "pwd_button");
     return $buttons;
 }
 add_filter("mce_buttons_2", "pwd_register_buttons_editor");
-?>
